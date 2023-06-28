@@ -11,6 +11,9 @@ function [P, H, t_P, x, freqset, dec_n, fs_x] = f0_engine(audiofilepath)
     end
     
     %%
+    s = s(1:min(numel(s), (fs_s*conf.maxlength - 1)));
+
+    %%
     fs_x = conf.fs_ds;
     x = helper.h_downsampling(s, fs_s, fs_x);
 
